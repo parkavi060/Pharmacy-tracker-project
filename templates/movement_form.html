@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ action }} Movement</h2>
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Timestamp (optional, ISO format)</label>
+    <input class="form-control" name="timestamp" value="{{ movement.timestamp.isoformat() if movement }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Product</label>
+    <select name="product_id" class="form-select" required>
+      <option value="">-- select product --</option>
+      {% for p in products %}
+      <option value="{{ p.product_id }}" {% if movement and movement.product_id==p.product_id %}selected{% endif %}>{{ p.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">From Location (leave blank for inbound)</label>
+    <select name="from_location" class="form-select">
+      <option value="">-- none --</option>
+      {% for l in locations %}
+      <option value="{{ l.location_id }}" {% if movement and movement.from_location==l.location_id %}selected{% endif %}>{{ l.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">To Location (leave blank for outbound)</label>
+    <select name="to_location" class="form-select">
+      <option value="">-- none --</option>
+      {% for l in locations %}
+      <option value="{{ l.location_id }}" {% if movement and movement.to_location==l.location_id %}selected{% endif %}>{{ l.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Quantity</label>
+    <input type="number" name="qty" class="form-control" value="{{ movement.qty if movement }}" required>
+  </div>
+  <button class="btn btn-primary">{{ action }}</button>
+  <a class="btn btn-secondary" href="{{ url_for('movements') }}">Cancel</a>
+</form>
+{% endblock %}

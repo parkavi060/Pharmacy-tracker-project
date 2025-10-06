@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ action }} Product</h2>
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Product ID (leave blank to auto-generate)</label>
+    <input class="form-control" name="product_id" value="{{ product.product_id if product }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input class="form-control" name="name" value="{{ product.name if product }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea class="form-control" name="description">{{ product.description if product }}</textarea>
+  </div>
+  <button class="btn btn-primary">{{ action }}</button>
+  <a class="btn btn-secondary" href="{{ url_for('products') }}">Cancel</a>
+</form>
+{% endblock %}

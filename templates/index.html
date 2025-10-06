@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center">
+  <h1>Pharmasy Stock & Sales Tracker</h1>
+  <link rel="icon" type="image/png" href="pharmacy.png">
+
+  <p class="lead">Manage products, locations, and movements.</p>
+  <a class="btn btn-primary" href="{{ url_for('products') }}">Start</a>
+</div>
+{% endblock %}

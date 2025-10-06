@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Movement</h2>
+<ul class="list-group">
+  <li class="list-group-item"><strong>ID:</strong> {{ movement.movement_id }}</li>
+  <li class="list-group-item"><strong>Timestamp:</strong> {{ movement.timestamp }}</li>
+  <li class="list-group-item"><strong>Product:</strong> {{ movement.product.name if movement.product else movement.product_id }}</li>
+  <li class="list-group-item"><strong>From:</strong> {{ movement.from_loc.name if movement.from_loc else '-' }}</li>
+  <li class="list-group-item"><strong>To:</strong> {{ movement.to_loc.name if movement.to_loc else '-' }}</li>
+  <li class="list-group-item"><strong>Qty:</strong> {{ movement.qty }}</li>
+</ul>
+<a class="btn btn-secondary mt-3" href="{{ url_for('movements') }}">Back</a>
+{% endblock %}
