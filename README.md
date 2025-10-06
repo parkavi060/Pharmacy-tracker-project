@@ -47,8 +47,6 @@ The app automatically creates:
 - 🏬 **4 locations** (Main Warehouse, Front Store, Cold Storage, Online Dispatch Unit)
 - 🔄 **20 product movements** (Inbound, transfer, outbound)
 
-> Use `/reset-seed` route to reseed database (dev only).
-
 ---
 
 
