@@ -40,35 +40,6 @@ A **Flask-based web app** to manage inventory, track product movements, and chec
 
 ---
 
-## 🗂 Database Structure
-
-### Tables
-
-1. **Product**
-| Column      | Type      | Notes          |
-|------------|-----------|----------------|
-| product_id | String    | Primary Key 🏷️ |
-| name       | String    | Required ✅    |
-| description| String    | Optional 📝   |
-
-2. **Location**
-| Column       | Type      | Notes          |
-|-------------|-----------|----------------|
-| location_id | String    | Primary Key 🏬 |
-| name        | String    | Required ✅    |
-| address     | String    | Optional 📍   |
-
-3. **ProductMovement**
-| Column        | Type      | Notes                   |
-|---------------|-----------|-------------------------|
-| movement_id   | String    | Primary Key 🆔          |
-| timestamp     | DateTime  | Defaults to now 🕒      |
-| from_location | String    | Nullable, FK to Location 🏬 |
-| to_location   | String    | Nullable, FK to Location 🏬 |
-| product_id    | String    | FK to Product 🏷️       |
-| qty           | Integer   | Required 🔢             |
-
----
 
 ## 🛠 Seed Data
 The app automatically creates:
